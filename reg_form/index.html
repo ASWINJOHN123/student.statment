@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>student details</title>
+        <style>
+
+           body{
+                 background-color: #b3bbc2;
+                 font-family: Calibri;
+               }
+            h1 {
+                font-weight: bold;
+                color: #4682b4;
+                text-align: center;
+                }
+            table{
+                color: white;
+                font-size: 15px;
+                font-weight: bold;
+                background-color: #696969;
+                border-collapse:collapse;
+                border: 2px solid navy;
+            }    
+
+        </style>
+    </head>
+    <body>
+        <h1>student data</h1>
+        <form name="myform" method="post" onsubmit="return validate()">
+            <table align="center" callpadding="10">
+<!------1st name--------->                
+                <tr>
+                    <td>first name</td>
+                    <td><input type="text" name="fname" maxlength="30"/>
+                    </td>
+                </tr>
+<!------last name--------->                
+                <tr>
+                    <td>last name</td>
+                    <td><input type="text" name="lname" maxlength="30"/>
+                    </td>
+                </tr>
+<!-------dob-------->                
+                <tr>
+                    <td>date of birth</td>
+                    <td><input type="date" name="date" id="date"/>
+                    </td>
+                </tr>
+<!------gmail--------->                
+                <tr>
+                    <td>email id</td>
+                    <td><input type="text" name="gmail" maxlength="100"/>
+                    </td>
+                </tr>
+<!-------phone no-------->                
+                <tr>
+                    <td>phone no</td>
+                    <td><input type="text" name="phone" maxlength="30"/>
+                        (10 digit no.)
+                    </td>
+                </tr>
+<!------gender--------->                
+                <tr>
+                    <td>gender</td>
+                    <td>male <input type="radio" name="gender" value="male"/>
+                        female <input type="radio" name="gender" value="female"/>
+                    </td>
+                </tr>
+<!-------address-------->                
+                <tr>
+                    <td>address</td>
+                    <td><textarea name="address" rows="4" cols="30"> </textarea>
+                    </td>
+                </tr>
+                
+<!-------state-------->                
+                <tr>
+                    <td>class</td>
+                    <td><select id="state" name="state">
+                        <option value="select a state">select a  class</option>
+                        <option value="Ⅰ"> Ⅰ</option>
+                        <option value="Ⅱ"> Ⅱ</option>
+                        <option value="Ⅲ"> Ⅲ</option>
+                        <option value="Ⅳ">Ⅳ</option>
+                        <option value="Ⅵ"> Ⅵ</option>
+                        <option value="Ⅶ">Ⅶ</option>
+                        <option value="Ⅷ"> Ⅷ</option>
+                        <option value="Ⅸ"> Ⅸ</option>
+                        <option value="Ⅹ">Ⅹ</option>
+                        <option value="Ⅺ"> Ⅺ</option>
+                        <option value="Ⅻ"> Ⅻ</option>
+                        
+                        </select>
+                    </td>
+                </tr>
+<!-------state-------->                
+<tr>
+    <td>Division</td>
+    <td><select id="Division" name="Division">
+        <option value="select a state">select a  Division</option>
+        <option value="A"> A</option>
+        <option value="B"> B</option>
+        <option value="C"> C</option>
+        </select>
+    </td>
+</tr>
+<!-------hobbies-------->                
+                <tr>
+                    <td>hobbies</td>
+                    <td>drawing : <input type="checkbox" name="hobby" id="hobby" value="draw"/>
+                        playing : <input type="checkbox" name="hobby" id="hobby" value="play"/>
+                        swimming : <input type="checkbox" name="hobby" id="hobby" value="swim"/>
+                        reading : <input type="checkbox" name="hobby" id="hobby" value="read"/>
+                        </td>
+                </tr>
+<!------submit--------->                
+                <tr>
+                    <td colspan="2" align="center">
+                    <input type="submit" value="submit"/>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+
+        <script type="text/javascript">
+            function validate()
+            {
+                var first= document.forms["myform"]["fname"].value
+                var last= document.forms["myform"]["lname"].value
+                var date= document.forms["myform"]["date"].value
+                var gmail= document.forms["myform"]["gmail"].value
+                var phone= document.forms["myform"]["phone"].value
+                var gender= document.forms["myform"]["gender"].value
+                var address= document.forms["myform"]["address"].value
+                var state= document.forms["myform"]["state"].value
+                var hobby= document.getElementById("hobby");
+//-----first name vallidation
+                if(first =="")
+                {
+                    alert("enter the name");
+                    return false;
+                }
+                if(!isNaN(first))
+                {
+                    alert("name should be in character");
+                    return false;
+                }
+//-----last name vallidation
+                if(last =="")
+                {
+                    alert("enter the name");
+                    return false;
+                }
+                if(!isNaN(last))
+                {
+                    alert("name should be in character");
+                    return false;
+                }
+//-----dob vallidation
+                if(date =="")
+                {
+                    alert("enter date");
+                    return false;
+                }
+//-----gmail vallidation
+                var at = gmail.indexof("@");
+                var dot = gmail.lastindex(".");
+
+                if(at<1||dot<at+2||dot+2 >= email.length)
+                {
+                    alert("not a valid gmail");
+                    return false;
+                }
+//-----phone no vallidation    
+                 if(phone == "")
+                 {
+                 alert("enter phone no.");
+                 return false;
+                 }
+                
+            
+            if (isNaN(phone))
+            {
+                alert("phone no. should be in degit.");
+                return false;
+            }
+                if(phone.lenght != 10)
+                {
+                 alert("most be 10 digit no.")
+                 return false;
+                }
+//-----gender vallidation
+                if(gender == "")
+                {
+                alert("select a genter");
+                return false; 
+                }              
+            }
+        </script>
+    </body>
+</html>
